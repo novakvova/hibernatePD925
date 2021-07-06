@@ -3,12 +3,17 @@ import org.hibernate.Session;
 import utils.HibernateSessionFactoryUtil;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String [] args) {
 //        System.out.println("Hello");
         try {
             Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+            System.out.printf("->_");
+            Scanner in = new Scanner(System.in);
+            String name = in.next();
+            System.out.println("Name = "+ name);
 //            System.out.println("Working data base....");
 //            session.beginTransaction();
 //            //Add new Employee object
