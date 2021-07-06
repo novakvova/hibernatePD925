@@ -1,3 +1,4 @@
+import models.Book;
 import models.User;
 import org.hibernate.Session;
 import utils.HibernateSessionFactoryUtil;
@@ -10,25 +11,19 @@ public class Main {
 //        System.out.println("Hello");
         try {
             Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-            System.out.printf("->_");
-            Scanner in = new Scanner(System.in);
-            String name = in.next();
-            System.out.println("Name = "+ name);
+//            System.out.printf("->_");
+//            Scanner in = new Scanner(System.in);
+//            String name = in.next();
+//            System.out.println("Name = "+ name);
 //            System.out.println("Working data base....");
-//            session.beginTransaction();
-//            //Add new Employee object
-//            User user = new User("Петро");
-//            //Save the employee in database
-//            session.save(user);
-//            //Commit the transaction
-//            session.getTransaction().commit();
-
-//            List<User> users = session.createQuery("from User").list();
-//            for (User u : users) {
-//                System.out.println(u.getName());
-//            }
+            session.beginTransaction();
+            Book book = new Book("Петро",2020,"Для Петра", 1);
+            //Save the employee in database
+            session.save(book);
+            //Commit the transaction
+            session.getTransaction().commit();
             session.close();
-            //System.out.println("User id = "+ user.getId());
+            System.out.println("Book id = "+ book.getId());
 
         }catch(Exception ex) {
             System.out.println("Problem! "+ex.getMessage());
