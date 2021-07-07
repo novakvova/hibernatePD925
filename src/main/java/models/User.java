@@ -24,7 +24,8 @@ public class User {
     private List<Role> roles;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL,
-        fetch = FetchType.LAZY, optional = false)
+        fetch = FetchType.LAZY, optional = true)
+//    @Column(nullable = true)
     private UserProfile userProfile;
 
     public User() {

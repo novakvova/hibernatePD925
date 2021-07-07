@@ -14,6 +14,7 @@ public class HibernateSessionFactoryUtil {
         if (sessionFactory == null) {
             try {
                 Configuration configuration = new Configuration()
+                       // .configure();
                         .configure("hibernatems.cfg.xml");
                 configuration.addAnnotatedClass(User.class);
                 configuration.addAnnotatedClass(Author.class);
