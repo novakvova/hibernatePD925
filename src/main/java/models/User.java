@@ -23,6 +23,10 @@ public class User {
     )
     private List<Role> roles;
 
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL,
+        fetch = FetchType.LAZY, optional = false)
+    private UserProfile userProfile;
+
     public User() {
         roles=new ArrayList<Role>();
     }
@@ -46,5 +50,21 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+
+    public UserProfile getUserProfile() {
+        return userProfile;
+    }
+
+    public void setUserProfile(UserProfile userProfile) {
+        this.userProfile = userProfile;
     }
 }

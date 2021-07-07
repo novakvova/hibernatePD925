@@ -1,9 +1,6 @@
 package utils;
 
-import models.Author;
-import models.Book;
-import models.Role;
-import models.User;
+import models.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -16,11 +13,13 @@ public class HibernateSessionFactoryUtil {
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
             try {
-                Configuration configuration = new Configuration().configure();
+                Configuration configuration = new Configuration()
+                        .configure("hibernatems.cfg.xml");
                 configuration.addAnnotatedClass(User.class);
                 configuration.addAnnotatedClass(Author.class);
                 configuration.addAnnotatedClass(Book.class);
                 configuration.addAnnotatedClass(Role.class);
+                configuration.addAnnotatedClass(UserProfile.class);
                 StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
                         .applySettings(configuration.getProperties());
                 sessionFactory = configuration.buildSessionFactory(builder.build());
