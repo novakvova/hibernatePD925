@@ -25,7 +25,6 @@ public class User {
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL,
         fetch = FetchType.LAZY, optional = true)
-//    @Column(nullable = true)
     private UserProfile userProfile;
 
     public User() {
